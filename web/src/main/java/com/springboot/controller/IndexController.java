@@ -10,13 +10,13 @@ import io.swagger.annotations.ApiOperation;
 @Api(value = "首页接口",tags = {"首页相关业务的controller"})
 public class IndexController {
 	
-	@ApiOperation(value = "上传视频",notes = "上传视频的接口")
+	@ApiOperation(value = "异常",notes = "异常测试")
 	@GetMapping("/index0")
     public String index0(){
     	int i = 1/0;
         return "index/index";
     }
-    
+	@ApiOperation(value = "首页",notes = "首页测试")
 	@GetMapping("/index")
     public String index(){
         return "index/index";
