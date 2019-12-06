@@ -9,7 +9,7 @@ import io.swagger.annotations.ApiOperation;
 @Controller
 @Api(value = "首页接口",tags = {"首页相关业务的controller"})
 public class IndexController {
-	
+
 	@ApiOperation(value = "异常",notes = "异常测试")
 	@GetMapping("/index0")
     public String index0(){
@@ -21,5 +21,5 @@ public class IndexController {
     public String index(){
         return "index/index";
     }
-    
+
 }
