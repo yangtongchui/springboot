@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<control>
+	<include file="control/member/control-index.xml"/>
+	<include file="control/member/control-member.xml"/>
+</control>

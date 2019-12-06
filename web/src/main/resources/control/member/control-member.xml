@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<control>
+    <action path="/front/member/getUser">
+		<parameter key="id" order="0" regex="[0-9]+" desc="主键"/>
+	</action>
+	<action path="/front/member/saveUser">
+		<parameter key="id" order="0" regex="[0-9]+" desc="主键"/>
+	    <parameter key="name" order="1" regex=".+" desc="姓名"/>
+		<parameter key="age" order="2" regex="[0-9]{1,2}" desc="年龄"/>
+	</action>
+	<action path="/front/member/delUser">
+		<parameter key="id" order="0" regex="[0-9]+" desc="主键"/>
+	</action>
+</control>
