@@ -21,8 +21,8 @@ import sun.misc.Request;
 
 import com.springboot.Application;
 
+//@Api(value = "用户接口",tags = {"用户相关业务的controller"})
 @Controller
-@Api(value = "用户接口",tags = {"用户相关业务的controller"})
 public class UserController {
 	
 	private static final Logger logger = (Logger) LoggerFactory.getLogger(Application.class);
@@ -31,10 +31,10 @@ public class UserController {
     private UserService userService;
  
     
-    @ApiOperation("查询用户的接口")
-    @ApiImplicitParams({
-       @ApiImplicitParam(name = "id", value = "用户id", defaultValue = "1")
-    })
+//    @ApiOperation("查询用户的接口")
+//    @ApiImplicitParams({
+//       @ApiImplicitParam(name = "id", value = "用户id", defaultValue = "1")
+//    })
     @PostMapping("/front/member/getUser")
     @ResponseBody
     public User getUser(@RequestBody int id){
@@ -49,10 +49,10 @@ public class UserController {
     	 return "success";
     }
     
-    @ApiOperation("删除用户的接口")
-    @ApiImplicitParams({
-       @ApiImplicitParam(name = "id", value = "用户id", defaultValue = "1")
-    })
+//    @ApiOperation("删除用户的接口")
+//    @ApiImplicitParams({
+//       @ApiImplicitParam(name = "id", value = "用户id", defaultValue = "1")
+//    })
     @PostMapping("/front/member/delUser")
     @ResponseBody
     public String delUser(@RequestBody int id){
