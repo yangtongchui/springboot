@@ -14,6 +14,9 @@ import com.springboot.entity.User;
 import com.springboot.service.UserService;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import sun.misc.Request;
 
 import com.springboot.Application;
@@ -27,9 +30,14 @@ public class UserController {
     @Autowired
     private UserService userService;
  
+    
+    @ApiOperation("查询用户的接口")
+    @ApiImplicitParams({
+       @ApiImplicitParam(name = "id", value = "用户id", defaultValue = "1")
+    })
     @PostMapping("/front/member/getUser")
     @ResponseBody
-    public User getUser(int id){
+    public User getUser(@RequestBody int id){
     	logger.info("查询用户"+id+"信息");
         return userService.getById(id);
     }
@@ -41,9 +49,13 @@ public class UserController {
     	 return "success";
     }
     
+    @ApiOperation("删除用户的接口")
+    @ApiImplicitParams({
+       @ApiImplicitParam(name = "id", value = "用户id", defaultValue = "1")
+    })
     @PostMapping("/front/member/delUser")
     @ResponseBody
-    public String delUser(int id){
+    public String delUser(@RequestBody int id){
     	userService.delUser(id);
     	return "success";
     }
