@@ -8,10 +8,10 @@ import com.springboot.entity.User;
 @Repository
 public interface UserMapper {
 	
-    User getById(int id);
+    User getById(String id);
     
     void saveUser(User user);
     
     @Delete("delete from user where id = #{id}")
-    void delUser(int id);
+    void delUser(String id);
 }

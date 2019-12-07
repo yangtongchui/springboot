@@ -37,7 +37,7 @@ public class UserController {
 //    })
     @PostMapping("/front/member/getUser")
     @ResponseBody
-    public User getUser(@RequestBody int id){
+    public User getUser(@RequestBody String id){
     	logger.info("查询用户"+id+"信息");
         return userService.getById(id);
     }
@@ -55,7 +55,7 @@ public class UserController {
 //    })
     @PostMapping("/front/member/delUser")
     @ResponseBody
-    public String delUser(@RequestBody int id){
+    public String delUser(@RequestBody String id){
     	userService.delUser(id);
     	return "success";
     }

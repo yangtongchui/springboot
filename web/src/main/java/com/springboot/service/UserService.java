@@ -12,7 +12,7 @@ public class UserService {
     @Autowired
     UserMapper userMapper;
     
-    public User getById(int id){
+    public User getById(String id){
         return userMapper.getById(id);
     }
     
@@ -20,7 +20,7 @@ public class UserService {
     	userMapper.saveUser(user);
     }
     
-    public void delUser(int id){
+    public void delUser(String id){
     	userMapper.delUser(id);
     }
     
