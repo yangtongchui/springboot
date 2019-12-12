@@ -1,0 +1,31 @@
+logging:
+    level:
+        com:
+            springboot:
+                mapper: DEBUG
+mybatis:
+    mapper-locations: classpath:mapping/*Mapper.xml
+    type-aliases-package: com.springboot.entity
+server:
+    port: 8080
+    tomcat:
+        uri-encoding: UTF-8
+spring:
+    data:
+        elasticsearch:
+            cluster-name: elasticsearch
+            cluster-nodes: 127.0.0.1:9300
+            repositories:
+                enabled: true
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        password: root
+        url: jdbc:mysql://localhost:3306/springboot?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+        username: root
+    http:
+        encoding:
+            charset: UTF-8
+            enabled: true
+            force: true
+    resources:
+        static-locations: classpath:/templates/,classpath:/static/
