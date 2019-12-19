@@ -2,6 +2,7 @@ package com.springboot.service;
 
 import java.util.Map;
 
+import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -36,11 +37,10 @@ public class UserService {
     
     public String getUserRest(Map<String, Object> params){
     	String url = "http://localhost:8080/front/member/getUser";
-    	JSONObject json = new JSONObject();
-    	json.put("id", params.get("id"));
+    	JSONObject json = new JSONObject(params);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
-        HttpEntity<Object> stringHttpEntity = new HttpEntity<>(json.toString(), headers);
+        HttpEntity<Object> stringHttpEntity = new HttpEntity<>(json, headers);
         ResponseEntity<String> stringResponseEntity = restTemplate.postForEntity(url, stringHttpEntity, String.class);
         return stringResponseEntity.getBody();
     }
