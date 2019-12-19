@@ -1,9 +1,13 @@
 package com.springboot.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +23,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import sun.misc.Request;
 
+import com.alibaba.fastjson.JSONObject;
 import com.springboot.Application;
 
 //@Api(value = "用户接口",tags = {"用户相关业务的controller"})
@@ -32,14 +37,14 @@ public class UserController {
  
     
 //    @ApiOperation("查询用户的接口")
-//    @ApiImplicitParams({
+	//    @ApiImplicitParams({
 //       @ApiImplicitParam(name = "id", value = "用户id", defaultValue = "1")
 //    })
-    @PostMapping("/front/member/getUser")
+	@PostMapping("/front/member/getUser")
     @ResponseBody
-    public User getUser(@RequestBody String id){
-    	logger.info("查询用户"+id+"信息");
-        return userService.getById(id);
+    public User getUser(@RequestBody User user){
+		logger.info("查询用户接收参数："+user);
+        return userService.getById(user.getId());
     }
     
     @PostMapping("/front/member/saveUser")
@@ -58,6 +63,16 @@ public class UserController {
     public String delUser(@RequestBody String id){
     	userService.delUser(id);
     	return "success";
+    }
+    
+
+    @GetMapping("/front/member/getUserRest")
+    @ResponseBody
+    public String getUserRest(){
+    	Map<String, Object> params = new HashMap<>();
+    	params.put("id", "123");
+		String result = userService.getUserRest(params);
+    	return result;
     }
     
 }
