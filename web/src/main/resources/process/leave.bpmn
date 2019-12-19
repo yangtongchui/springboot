@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.activiti.org/test" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test" id="m1576334801743" name="">
+  <process id="leave" isExecutable="true" isClosed="false" processType="None">
+    <startEvent id="start" name="StartEvent"></startEvent>
+    <userTask id="manager" name="项目经理">
+      <extensionElements>
+        <activiti:executionListener event="start"></activiti:executionListener>
+        <activiti:taskListener event="create"></activiti:taskListener>
+      </extensionElements>
+    </userTask>
+    <userTask id="hr" name="人力资源">
+      <extensionElements>
+        <activiti:executionListener event="start"></activiti:executionListener>
+        <activiti:taskListener event="create"></activiti:taskListener>
+      </extensionElements>
+    </userTask>
+    <endEvent id="end" name="EndEvent"></endEvent>
+    <sequenceFlow id="_6" sourceRef="start" targetRef="manager"></sequenceFlow>
+    <sequenceFlow id="flow1" sourceRef="manager" targetRef="hr"></sequenceFlow>
+    <sequenceFlow id="flow2" sourceRef="hr" targetRef="end"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_leave">
+    <bpmndi:BPMNPlane bpmnElement="leave" id="BPMNPlane_leave">
+      <bpmndi:BPMNShape bpmnElement="start" id="BPMNShape_start">
+        <omgdc:Bounds height="35.0" width="35.0" x="385.0" y="73.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="manager" id="BPMNShape_manager">
+        <omgdc:Bounds height="55.0" width="85.0" x="360.0" y="180.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="hr" id="BPMNShape_hr">
+        <omgdc:Bounds height="55.0" width="105.0" x="350.0" y="300.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="end" id="BPMNShape_end">
+        <omgdc:Bounds height="35.0" width="35.0" x="385.0" y="430.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_6" id="BPMNEdge__6">
+        <omgdi:waypoint x="402.0" y="108.0"></omgdi:waypoint>
+        <omgdi:waypoint x="402.0" y="180.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="402.0" y="235.0"></omgdi:waypoint>
+        <omgdi:waypoint x="402.0" y="300.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+        <omgdi:waypoint x="402.0" y="355.0"></omgdi:waypoint>
+        <omgdi:waypoint x="402.0" y="430.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
